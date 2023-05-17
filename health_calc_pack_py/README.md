@@ -26,9 +26,9 @@ Após instalar as dependências, execute o seguinte comando para iniciar o servi
 python app.py
 
 A API estará disponível em http://localhost:5000. Envie requisições HTTP para os endpoints disponíveis para interagir com a aplicação.
+
 ## Swagger
 Acesse o http://localhost:5000/docs/
-
 
 ## Testes unitários
 python -m unittest discover tests
