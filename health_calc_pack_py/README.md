@@ -12,8 +12,11 @@ git clone https://github.com/Angelo-Diniz/health-calc-pack-py
 cd health_calc_pack_py
 
 3. Crie um ambiente virtual e ative-o (opcional, mas recomendado):
+
 python -m venv venv
+
 source venv/bin/activate  # Linux/macOS
+
 venv\Scripts\activate  # Windows
 
 4. Instale as dependências:
