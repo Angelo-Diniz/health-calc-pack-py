@@ -5,7 +5,7 @@ Health Calc Pack Py é uma API para calcular o Índice de Massa Corporal (IMC) e
 ## Instalação
 
 1. Clone o repositório:
-git clone https://github.com/seu_usuario/health-calc-pack-py.git
+git clone https://github.com/Angelo-Diniz/health-calc-pack-py
 
 
 2. Entre no diretório do projeto:
@@ -26,6 +26,9 @@ Após instalar as dependências, execute o seguinte comando para iniciar o servi
 python app.py
 
 A API estará disponível em http://localhost:5000. Envie requisições HTTP para os endpoints disponíveis para interagir com a aplicação.
+## Swagger
+Acesse o http://localhost:5000/docs/
+
 
 ## Testes unitários
 python -m unittest discover tests
