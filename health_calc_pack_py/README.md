@@ -44,8 +44,6 @@ python -m unittest discover tests
 
 Isso executará todos os testes unitários definidos na pasta tests e exibirá os resultados.
 
-## Testes unitários
-
 Endpoints
 
 A API fornece os seguintes endpoints:
