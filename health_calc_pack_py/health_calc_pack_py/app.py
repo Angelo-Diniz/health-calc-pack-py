@@ -41,9 +41,10 @@ def imc():
     if peso <= 0 or altura <= 0:
         return jsonify({"erro": "Os campos 'peso' e 'altura' devem ser maiores que zero"}), 400
 
-    imc = calcular_imc(peso, altura)
+    resultado = calcular_imc(peso, altura)
 
-    return jsonify({"IMC": imc})
+    return jsonify(resultado)
+
 
 @app.route('/calcular_macronutrientes', methods=['POST'])
 def macronutrientes():
