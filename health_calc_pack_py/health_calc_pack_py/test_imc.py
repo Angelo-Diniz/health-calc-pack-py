@@ -3,7 +3,8 @@ from .imc import calcular_imc
 
 
 def test_imc():
-    imc = calcular_imc(70, 1.75)
+    result = calcular_imc(70, 1.75)
+    imc = result['IMC']
     assert imc == 22.86
 
 

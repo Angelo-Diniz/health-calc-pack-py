@@ -7,9 +7,9 @@ from health_calc_pack_py.macronutrientes import calcular_macronutrientes, OBJETI
 
 class TestIMCMacronutrientes(unittest.TestCase):
     def test_calcular_imc(self):
-        imc = calcular_imc(70, 1.75)
+        result = calcular_imc(70, 1.75)
+        imc = result['IMC']
         self.assertAlmostEqual(imc, 22.86, delta=0.01)
-
     def test_calcular_macronutrientes_ganho_massa_muscular(self):
         resultado = calcular_macronutrientes(70, 1)
         self.assertEqual(resultado["Carboidratos"], 280)

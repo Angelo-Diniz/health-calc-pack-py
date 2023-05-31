@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "health-calc-pack-py"
-version = "0.4.0"
+version = "0.4.1"
 description = "Uma API para calcular IMC e macronutrientes"
 authors = ["Angelo Diniz <angelo.jose.7l@hotmail.com>", "Daniel Bernardes <danielaugustobernardes@yahoo.com.br>"]
 readme = "README.md"
