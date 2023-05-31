@@ -1,32 +1,34 @@
-# nome_do_projeto/macronutrientes.py
+# macronutrientes.py
+from .estrategia import Estrategia
+from .ganho_massa_muscular import GanhoMassaMuscular
+from .perda_gordura import PerdaGordura
+from .manutencao_peso import ManutencaoPeso
+from .perda_peso_ganho_massa_muscular import PerdaPesoGanhoMassaMuscular
+
+NOME_PARA_OBJETIVO = {
+    "Ganho de Massa Muscular": GanhoMassaMuscular,
+    "Perda de Gordura": PerdaGordura,
+    "Manutenção do Peso": ManutencaoPeso,
+    "Perto do Peso - Ganho de Massa Muscular": PerdaPesoGanhoMassaMuscular
+}
+
 OBJETIVOS = {
-    1: "Ganho de Massa Muscular",
-    2: "Perda de Gordura",
-    3: "Manutenção do Peso"
+    1: GanhoMassaMuscular,
+    2: PerdaGordura,  
+    3: ManutencaoPeso,
+    4: PerdaPesoGanhoMassaMuscular
 }
 
 def calcular_macronutrientes(peso, objetivo):
     if isinstance(objetivo, str):
-        objetivo = {v: k for k, v in OBJETIVOS.items()}.get(objetivo)
+        objetivo = NOME_PARA_OBJETIVO.get(objetivo)
+        if objetivo is None:
+            raise ValueError("Objetivo inválido")
 
-    if objetivo not in OBJETIVOS:
-        raise ValueError("Objetivo inválido")
+    elif isinstance(objetivo, int):
+        objetivo = OBJETIVOS.get(objetivo)
+        if objetivo is None:
+            raise ValueError("Objetivo inválido")
 
-    if objetivo == 1:
-        carboidratos = 4 * peso
-        proteinas = 2 * peso
-        gorduras = 1 * peso
-    elif objetivo == 2:
-        carboidratos = 3 * peso
-        proteinas = 4 * peso
-        gorduras = 3 * peso
-    else:  # objetivo == 3
-        carboidratos = 4 * peso
-        proteinas = 4 * peso
-        gorduras = 2 * peso
-
-    return {
-        "Carboidratos": carboidratos,
-        "Proteinas": proteinas,
-        "Gorduras": gorduras
-    }
+    estrategia = objetivo()  
+    return estrategia.calcular_macronutrientes(peso)

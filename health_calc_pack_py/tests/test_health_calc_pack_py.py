@@ -1,10 +1,11 @@
+# test_health_calc_pack_py.py
 import unittest
 
 from health_calc_pack_py.imc import calcular_imc
 from health_calc_pack_py.macronutrientes import calcular_macronutrientes, OBJETIVOS
 
 
-class TestNomeDoProjeto(unittest.TestCase):
+class TestIMCMacronutrientes(unittest.TestCase):
     def test_calcular_imc(self):
         imc = calcular_imc(70, 1.75)
         self.assertAlmostEqual(imc, 22.86, delta=0.01)
@@ -27,9 +28,15 @@ class TestNomeDoProjeto(unittest.TestCase):
         self.assertEqual(resultado["Proteinas"], 280)
         self.assertEqual(resultado["Gorduras"], 140)
 
+    def test_calcular_macronutrientes_perda_peso_ganho_massa_muscular(self):
+        resultado = calcular_macronutrientes(70, 4)
+        self.assertEqual(resultado["Carboidratos"], 245)
+        self.assertEqual(resultado["Proteinas"], 105)
+        self.assertEqual(resultado["Gorduras"], 70)
+
     def test_calcular_macronutrientes_objetivo_invalido(self):
         with self.assertRaises(ValueError):
-            calcular_macronutrientes(70, 4)
+            calcular_macronutrientes(70, 5)
 
     def test_calcular_macronutrientes_objetivo_descricao(self):
         for objetivo, descricao in OBJETIVOS.items():
